@@ -1,0 +1,118 @@
+<div class="container nt-5">
+        <div class="row">
+            <div class="col-log-8 offset-lg-2">
+                <div class="card">
+                    <div class=card-body>
+                        <h2 class="titulo">Persona</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="titulo">Agregar Persona</h4>
+                        <form [formGroup]="form" (ngSubmit)="agregarPersona()">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Codigo</span>
+                                <input formControlName="cod_persona" type="text" class="form-control" >
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text">Nombre</span>
+                                <input formControlName="nom_persona" type="text" class="form-control" >
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text">Fecha de Nacimiento</span>
+                                <input formControlName="fec_nacimiento" type="text" class="form-control" >
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text">Sueldo</span>
+                                <input formControlName="Sueldo" type="text" class="form-control" >
+                              </div>
+                                                           
+                              <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select" id="autoSizingSelect">
+                                            <option selected>Sector</option>
+                                            <option [value]="persona.cod_sector" *ngFor="let persona of listSector">{{persona.des_sector}}</option>
+                                          </select>                                      
+                                      </div>
+        
+                                </div>
+                                                         
+                                <div class="col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select" id="autoSizingSelect">
+                                            <option selected>Zona</option>
+                                            <option [value]="persona.cod_zona" *ngFor="let persona of listZona">{{persona.des_zona}}</option>
+
+                                          </select>
+                                      
+                                      </div>
+                                </div> 
+                            </div>  
+                            <div class="d-grid gap-2">                      
+                                <button type="submit" class="btn btn-primary">Aceptar</button>
+                              </div>
+                            
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="titulo">Personas Registradas</h4>
+                        <table class="far table"> <!--table-hover-->                           
+                            <tbody>
+                                <td>Codigo</td>
+                                <td>Nombre</td>
+                                <td>Nacimiento</td>
+                                <td>Sueldo</td>
+                                <td>Sector</td>
+                                <td>Zona</td>
+                                <tr *ngFor="let persona of listPersona" >
+                                    <td>{{persona.cod_persona}}</td>
+                                    <td>{{persona.nom_persona}}</td>
+                                    <td>{{persona.fec_nacimiento}}</td>
+                                    <td>{{persona.sueldo}}</td>
+                                    <td>{{persona.cod_sector}}</td>
+                                    <td>{{persona.cod_zona}}</td>
+                                    <td>
+                                        <i (click)="eliminarPersona(persona.id)" class="fas fa-trash-alt"></i>
+                                    </td>
+                                    <td>
+                                        <i (click)="consultarPersona()" class="fas fa-trash-alt"></i>
+                                    </td>                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                       <!-- <table class="far table">
+                            <tbody >
+                                <td>Codigo</td>
+                                <td>Nombre</td>
+                                <td>Sueldo</td>
+                                <tr *ngFor="let persona of listPersona11" >
+                                    <td>{{persona.cod_persona}}</td>
+                                    <td>{{persona.nom_persona}}</td>
+                                    <td>{{persona.Sueldo}}</td>                                 
+                                </tr>
+                            </tbody>
+                        </table>-->
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+
+
+
+
+</div> 
